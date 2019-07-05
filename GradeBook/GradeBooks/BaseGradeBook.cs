@@ -111,11 +111,6 @@ namespace GradeBook.GradeBooks
         {
             var gpa = 0;
 
-            if (IsWeighted && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled))
-            {
-                gpa++;
-            }
-
             switch (letterGrade)
             {
                 case 'A':
@@ -133,6 +128,11 @@ namespace GradeBook.GradeBooks
                 case 'F':
                     gpa = 0;
                     break;
+            }
+
+            if (IsWeighted && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled))
+            {
+                gpa++;
             }
 
             return gpa;
